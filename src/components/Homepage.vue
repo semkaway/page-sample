@@ -1,6 +1,9 @@
 <template>
   <main class="homepage">
-      <img src="@/assets/img/main-img.png" class="homepage__img">
+      <carousel class="homepage__carousel" hidden/>
+      <div class="homepage__images">
+          <img src="@/assets/img/main-img.png">
+      </div>
       <div class="homepage__info">
           <p class="homepage__info__paragraph">Израиль, Тель-Авив</p>
           <p class="homepage__info__headline">Медицинский центр Анадолу</p>
@@ -35,15 +38,16 @@
 
 <script>
 import InfoBlock from '@/components/InfoBlock'
+import Carousel from '@/components/Carousel'
 
 export default {
     name: 'Homepage',
-    components: {'homepage__quote__author': InfoBlock}
+    components: {'homepage__quote__author': InfoBlock, 'carousel': Carousel}
 }
 
 </script>
 
-<style >
+<style>
 
 .homepage__quote__author {
     display: flex;
@@ -105,19 +109,22 @@ export default {
 
 @media screen and (max-width: 600px) {
 
-    .homepage__img {
-        width: 100%;
-        height: 204px;
+    .homepage__carousel {
+        display: block;
+    }
+
+    .homepage__images {
+        visibility: hidden;
+        display: none;
     }
 
     .homepage__info {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding: 16px;
+        box-sizing: border-box;
     }
 
     .homepage__info__paragraph {
         margin: 0;
-        margin-top: 5px;
         font-size: 16px;
         line-height: 19px;
         color: rgba(0, 0, 0, 0.87);
