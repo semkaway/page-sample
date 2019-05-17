@@ -1,7 +1,7 @@
 <template>
     <div class="form">
         <button type="button" class="form__close" @click="closeForm()">
-            <img src="@/assets/img/close.svg" alt="close form">
+            <img src="@/assets/img/icons/close.svg" alt="close form">
         </button>
         <div class="form__info">
             <p class="info__title">Бесшовная пересадка волос методом FUE</p>
@@ -74,14 +74,15 @@
 <style>
 
     .form {
-        position: absolute;
         height: 100%;
-        width: 100%;
         background-color: rgb(255, 255, 255);
         display: inline-block;
+        box-sizing: border-box;
+        padding-bottom: 40px;
     }
 
     .form__close {
+        display: none;
         position: absolute;
         left: 19px;
         top: 19px;
@@ -95,10 +96,10 @@
     }
 
     .form__info {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 32px;
+        padding-right: 32px;
         box-sizing: border-box;
-        margin-top: 80px;
+        margin-top: 32px;
     }
 
     .info__title {
@@ -160,7 +161,7 @@
     .form__checkbox {
         margin-top: 16px;
         position: relative;
-        margin-bottom: 8px;
+        margin-bottom: 4px;
     }
 
     .checkbox__text {
@@ -231,6 +232,33 @@
 
     .form__input--error {
         border-color: #DD2C00;
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        .form {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        .form__close {
+            display: block;
+        }
+
+        .form__info {
+            margin-top: 80px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .form__checkbox {
+            margin-bottom: 8px;
+        }
+
     }
 
 </style>

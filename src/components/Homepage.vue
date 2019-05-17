@@ -1,21 +1,43 @@
 <template>
   <main>
-      <contact-form v-if="formVisible" id="contactForm"/>
-      <div v-else class="homepage">
+      <div class="homepage">
+          <contact-form :class="{'homepage__form': !formVisible}"/>
           <carousel class="homepage__carousel" hidden/>
           <div class="homepage__images">
-              <img src="@/assets/img/main-img.png">
+              <div class="main-image-holder">
+                  <img class="main-image" src="@/assets/img/main-img.png" alt="doctor wearing a face mask">
+              </div>
+              <div class="images__other-images">
+                  <div class="other-image-holder">
+                      <img class="other-image" src="@/assets/img/img1.png" alt="hospital bed">
+                  </div>
+                  <div class="other-image-holder">
+                      <img class="other-image" src="@/assets/img/img2.png" alt="doctor working">
+                  </div>
+                  <div class="other-image-holder">
+                      <img class="other-image" src="@/assets/img/img2.png" alt="doctor working">
+                  </div>
+                  <div class="other-image-holder">
+                      <img class="other-image" src="@/assets/img/img1.png" alt="hospital bed">
+                  </div>
+              </div>
           </div>
           <div class="homepage__info">
               <p class="info__paragraph">Израиль, Тель-Авив</p>
               <p class="info__headline">Медицинский центр Анадолу</p>
               <div class="info-block-holder">
-                  <info-block image="img/logo1.png" title="JCI" info="Joint Commission International"/>
-                  <info-block image="img/logo1.png" title="JCI" info="Joint Commission International"/>
-                  <info-block image="img/logo2.png" title="ESMO" info="European Society for Medical Oncology"/>
+                  <info-block class="info-block-holder__item" image="img/logo1.png" title="JCI" info="Joint Commission International"/>
+                  <info-block class="info-block-holder__item" image="img/logo1.png" title="JCI" info="Joint Commission International"/>
+                  <info-block class="info-block-holder__item" image="img/logo2.png" title="ESMO" info="European Society for Medical Oncology"/>
+              </div>
+              <div class="homepage__numbers">
+                  <numbers-block number="2 000" text="сотрудников"/>
+                  <numbers-block number="23 500" text="операций в год"/>
+                  <numbers-block number="400" text="докторов"/>
+                  <numbers-block number="658" text="коек"/>
               </div>
               <div class="homepage__quote">
-                  <img src="@/assets/img/quotes.png" alt="quotes" class="homepage__quote__image">
+                  <img src="@/assets/img/icons/quotes.png" alt="quotes" class="homepage__quote__image">
                   <p class="homepage__quote__text">Если тебе тяжело, значит ты поднимаешься в гору.
                       Тебе легко, значит ты летишь в пропасть. Если драгоценный камень попадает в грязь, он остается драгоценностью.
                       Если пыль подымается к небу, она остается пылью.</p>
@@ -40,6 +62,7 @@
 <script>
 import TheForm from '@/components/TheForm'
 import InfoBlock from '@/components/InfoBlock'
+import NumbersBlock from '@/components/NumbersBlock'
 import TheCarousel from '@/components/TheCarousel'
 import TheButton from '@/components/TheButton'
 
@@ -48,6 +71,7 @@ export default {
     components: {
                     'contact-form': TheForm,
                     'info-block': InfoBlock,
+                    'numbers-block': NumbersBlock,
                     'carousel': TheCarousel,
                     TheButton
                 },
@@ -67,64 +91,62 @@ export default {
 
 <style>
 
-.quote__author {
-    display: flex;
-    flex-direction: row;
-}
-
-.quote__author__text-holder {
-    display: flex;
-    align-items: center;
-}
-
-.quote__author__text-holder__text--bold {
-    margin-top: 12.42px;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    color: rgba(0, 0, 0, 0.87);
-}
-
-.quote__author__text-holder__text--muted {
-    font-size: 13px;
-    line-height: 17px;
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.quote__author__image-holder {
-    width: 48px;
-    height: 48px;
-    margin-left: 25px;
-}
-
-.quote__author__text-holder {
-    margin-left: 0;
-    display: block;
-}
-
-.quote__author__text-holder__text {
-    margin: 0;
-    margin-bottom: 2px;
-}
-
-@media screen and (max-width: 768px) {
-
-    .homepage__carousel {
-        display: block;
+    .homepage__images {
+        height: 511px;
+        display: flex;
+        flex-direction: row;
     }
 
-    .homepage__images {
-        visibility: hidden;
-        display: none;
+    .main-image-holder {
+        width: 60%;
+    }
+
+    .main-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .images__other-images {
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .other-image-holder {
+        width: 50%;
+        height: 50%;
+    }
+
+    .other-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .homepage__form {
+        position: absolute;
+        left: 61.67%;
+        right: 11.67%;
+        top: 37.11%;
+        bottom: 11.68%;
+        /* height: 570px;
+        width: 384px; */
+        box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.24);
+        border-radius: 8px;
     }
 
     .homepage__info {
-        padding: 16px;
+        padding-left: 168px;
+        padding-right: 608px;
+        padding-bottom: 46px;
         box-sizing: border-box;
     }
 
     .info__paragraph {
         margin: 0;
+        margin-top: 56px;
         font-size: 16px;
         line-height: 19px;
         color: rgba(0, 0, 0, 0.87);
@@ -132,7 +154,7 @@ export default {
 
     .info__headline {
         margin: 0;
-        margin-top: 5px;
+        margin-top: 8px;
         font-weight: bold;
         font-size: 32px;
         line-height: 37px;
@@ -140,36 +162,139 @@ export default {
     }
 
     .info-block-holder {
-        margin-top: 24px;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
-    .homepage__quote__author {
-        margin-top: 20px;
-        margin-bottom: 20px;
+    .info-block-holder__item {
+        width: 50%;
     }
 
-    .homepage__quote {
-        margin-top: 16px;
+    .homepage__numbers {
+        display: flex;
+        direction: row;
+        margin-bottom: 32px;
     }
 
-    .homepage__quote__text {
+    .quote__author {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .quote__author__text-holder {
+        display: flex;
+        align-items: center;
+    }
+
+    .quote__author__text-holder__text--bold {
+        margin-top: 12.42px;
+        font-weight: bold;
         font-size: 16px;
-        line-height: 23px;
+        line-height: 19px;
         color: rgba(0, 0, 0, 0.87);
     }
 
-    .homepage__button-holder {
-        display: block;
-        position: sticky;
-        bottom: 0;
-        height: 88px;
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-        background-color: rgba(255, 255, 255);
-        padding: 16px;
-        box-sizing: border-box;
+    .quote__author__text-holder__text--muted {
+        font-size: 13px;
+        line-height: 17px;
+        color: rgba(0, 0, 0, 0.6);
     }
 
+    .quote__author__image-holder {
+        width: 48px;
+        height: 48px;
+        margin-left: 25px;
+    }
 
-}
+    .quote__author__text-holder {
+        margin-left: 0;
+        display: block;
+    }
+
+    .quote__author__text-holder__text {
+        margin: 0;
+        margin-bottom: 2px;
+    }
+
+    @media screen and (min-width: 1500px) {
+        .homepage__images {
+            height: 600px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+        .homepage__images {
+            height: 400px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .homepage__form {
+            display: none;
+        }
+
+        .homepage__carousel {
+            display: block;
+        }
+
+        .homepage__images {
+            visibility: hidden;
+            display: none;
+        }
+
+        .homepage__info {
+            padding: 16px;
+        }
+
+        .info__paragraph {
+            margin: 0;
+        }
+
+        .info__headline {
+            margin-top: 5px;
+        }
+
+        .info-block-holder {
+            margin-top: 24px;
+            flex-direction: column;
+        }
+
+        .info-block-holder__item {
+            width: 100%;
+        }
+
+        .homepage__numbers {
+            display: none;
+        }
+
+        .homepage__quote__author {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .homepage__quote {
+            margin-top: 16px;
+        }
+
+        .homepage__quote__text {
+            font-size: 16px;
+            line-height: 23px;
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        .homepage__button-holder {
+            display: block;
+            position: sticky;
+            bottom: 0;
+            height: 88px;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+            background-color: rgba(255, 255, 255);
+            padding: 16px;
+            box-sizing: border-box;
+        }
+    }
 
 </style>
