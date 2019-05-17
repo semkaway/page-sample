@@ -127,12 +127,10 @@ export default {
 
     .homepage__form {
         position: absolute;
-        left: 61.67%;
-        right: 11.67%;
-        top: 37.11%;
-        bottom: 11.68%;
-        /* height: 570px;
-        width: 384px; */
+        margin-left: 888px;
+        margin-right: 168px;
+        margin-top: 413px;
+        height: auto;
         box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.24);
         border-radius: 8px;
     }
