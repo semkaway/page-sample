@@ -160,6 +160,7 @@
     .form__checkbox {
         margin-top: 16px;
         position: relative;
+        margin-bottom: 8px;
     }
 
     .checkbox__text {

@@ -49,7 +49,7 @@ export default {
         color: rgba(0, 0, 0, 0.6);
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 768px) {
 
         .info-block {
             margin-bottom: 16px;

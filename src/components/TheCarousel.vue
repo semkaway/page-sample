@@ -44,6 +44,7 @@
     .carousel  {
         width: 100%;
         height: 204px;
+        position: relative;
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 74.06%, rgba(0, 0, 0, 0.24) 100%);
     }
 
@@ -56,10 +57,10 @@
     .carousel__list {
         list-style-type: none;
         padding: 0;
-        margin: 0;
+        margin: 0 auto;
         position: absolute;
         top: 188px;
-        left: 152px;
+        left: calc((100% - 16px * 5) / 2);
     }
 
     .carousel__list__dot {
@@ -84,5 +85,21 @@
         background: transparent;
         border: none;
         outline-color: rgba(255, 255, 255, 0);
+    }
+
+    @media only screen and (max-width: 768px) and (min-width: 426px) {
+        .carousel {
+            height: 400px;
+        }
+
+        .carousel__list__dot {
+            height: 12px;
+            width: 12px;
+        }
+
+        .carousel__list {
+            top: 370px;
+            left: calc((100% - 20px * 5) / 2);
+        }
     }
 </style>

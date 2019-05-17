@@ -107,25 +107,7 @@ export default {
     margin-bottom: 2px;
 }
 
-/* .homepage__button-holder__button {
-    height: 56px;
-    width: 100%;
-    background-color: #FB765F;
-    border-radius: 32px;
-    border: none;
-    box-sizing: border-box;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-left: 8px;
-    padding-right: 8px;
-    color: rgb(255, 255, 255);
-    font-weight: 500;
-    font-size: 19px;
-    line-height: 22px;
-    text-align: center;
-} */
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 
     .homepage__carousel {
         display: block;
