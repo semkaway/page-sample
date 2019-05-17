@@ -33,7 +33,6 @@
         },
         methods: {
             showElement(index) {
-                console.log(index)
                 this.currentElementIndex = index
                 this.currentImg = this.carousel[index]
             }

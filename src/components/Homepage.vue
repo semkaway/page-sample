@@ -33,7 +33,7 @@
           </div>
       </div>
       <div class="homepage__button-holder" hidden>
-          <button type="button" class="homepage__button-holder__button" @click="showForm">Связаться с клиникой</button>
+          <TheButton @click="showForm" text="Связаться с клиникой"/>
       </div>
   </main>
 </template>
@@ -41,11 +41,17 @@
 <script>
 import TheForm from '@/components/TheForm'
 import InfoBlock from '@/components/InfoBlock'
-import Carousel from '@/components/Carousel'
+import TheCarousel from '@/components/TheCarousel'
+import TheButton from '@/components/TheButton'
 
 export default {
     name: 'Homepage',
-    components: {'contact-form': TheForm, 'info-block': InfoBlock, 'carousel': Carousel},
+    components: {
+                    'contact-form': TheForm,
+                    'info-block': InfoBlock,
+                    'carousel': TheCarousel,
+                    TheButton
+                },
     methods: {
         showForm() {
             let form = document.getElementById('contactForm')
@@ -98,7 +104,7 @@ export default {
     margin-bottom: 2px;
 }
 
-.homepage__button-holder__button {
+/* .homepage__button-holder__button {
     height: 56px;
     width: 100%;
     background-color: #FB765F;
@@ -114,7 +120,7 @@ export default {
     font-size: 19px;
     line-height: 22px;
     text-align: center;
-}
+} */
 
 @media screen and (max-width: 600px) {
 
