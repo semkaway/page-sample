@@ -26,5 +26,6 @@
         font-size: 19px;
         line-height: 22px;
         text-align: center;
+        outline-color: rgb(255, 255, 255);
     }
 </style>
