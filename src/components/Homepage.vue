@@ -220,11 +220,82 @@ export default {
         .homepage__images {
             height: 600px;
         }
+
+        .homepage__form {
+            margin-left: 1500px;
+            width: 384px;
+            margin-right: 50px;
+            margin-top: 350px;
+        }
+
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1200px) {
+    @media screen and (min-width: 1030px) and (max-width: 1250px) {
+        .homepage__form {
+            margin-left: 650px;
+            width: 384px;
+            margin-right: 50px;
+            margin-top: 350px;
+        }
+
+        .homepage__info {
+            padding-left: 70px;
+            padding-right: 575px;
+        }
+
+        .info-block-holder__item {
+            width: 100%;
+        }
+
+        .homepage__numbers {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 900px) and (max-width: 1030px) {
+        .homepage__form {
+            margin-left: 520px;
+            width: 384px;
+            margin-right: 50px;
+            margin-top: 350px;
+        }
+
+        .homepage__info {
+            padding-left: 70px;
+            padding-right: 500px;
+        }
+
+        .info-block-holder__item {
+            width: 100%;
+        }
+
+        .homepage__numbers {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 900px) {
         .homepage__images {
             height: 400px;
+        }
+
+        .homepage__form {
+            margin-left: 440px;
+            margin-right: 70px;
+            margin-top: 300px;
+        }
+
+        .homepage__info {
+            padding-left: 70px;
+            padding-right: 450px;
+        }
+
+        .info-block-holder__item {
+            width: 100%;
+        }
+
+        .homepage__numbers {
+            display: none;
         }
     }
 
