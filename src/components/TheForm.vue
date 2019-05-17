@@ -16,16 +16,18 @@
                 <p class="info__text--bold">Итого</p>
                 <p class="info__price">$3400</p>
             </div>
-            <form class="form__form">
+            <form class="form__form" @submit="submitForm">
                 <label class="form__label" for="form__email">Электронная почта</label>
-                <input type="text" name="form__email" :v-model="email" placeholder="example@email.com" class="form__input">
+                <input type="email" name="form__email" v-model="email" placeholder="example@email.com" class="form__input" :class="{'form__input--error': emailError}">
+                <p v-if="emailError" class="form__text--error">Введите вашу электронную почту</p>
                 <label class="form__checkbox">
                     <p class="checkbox__text">Я соглашаюсь с <span class="form__link">Условиями пользования</span> и принимаю <span class="form__link">Политику конфиденциальности</span></p>
-                    <input class="form__checkbox--hidden" type="checkbox">
-                    <span class="form__checkmark"></span>
+                    <input id="checkbox" class="form__checkbox--hidden" type="checkbox">
+                    <span class="form__checkmark" :class="{'form__input--error': checkboxError}"></span>
                 </label>
+                <p v-if="checkboxError" class="form__text--error">Подтвердите, что вы прочитали условия и согласны с ними</p>
+                <TheButton class="form__button" type="submit" text="Связаться с клиникой"/>
             </form>
-            <TheButton class="form__button" @click.native="showForm()" text="Связаться с клиникой"/>
         </div>
     </div>
 </template>
@@ -39,12 +41,31 @@
         components: {TheButton},
         data() {
             return {
-                email: String
+                email: "",
+                emailError: false,
+                checkboxError: false
             }
         },
         methods: {
             closeForm() {
                 this.$parent.formVisible = false
+            },
+            submitForm(e) {
+                e.preventDefault()
+                let checkbox = document.getElementById('checkbox')
+                this.checkboxError = false
+                this.emailError = false
+                if (this.email == "") {
+                    this.emailError = true
+                }
+                if (checkbox.checked == false) {
+                    this.checkboxError = true
+                }
+                else if(this.email != "" && checkbox.checked) {
+                    checkbox.checked = false
+                    this.email = ""
+                    console.log("submittng form")
+                }
             }
         }
     }
@@ -173,8 +194,42 @@
         border-radius: 2px;
     }
 
+    .form__checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    .form__checkbox input:checked ~ .form__checkmark:after {
+        display: block;
+    }
+
+    .form__checkbox .form__checkmark:after {
+        left: 5px;
+        top: 1px;
+        width: 5px;
+        height: 8px;
+        border: solid rgba(0, 0, 0, 0.7);
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
     .form__button {
         margin-top: 40px;
+    }
+
+    .form__text--error {
+        margin-top: 4px;
+        margin-bottom: 0px;
+        font-size: 13px;
+        line-height: 15px;
+        color: #DD2C00;
+    }
+
+    .form__input--error {
+        border-color: #DD2C00;
     }
 
 </style>
