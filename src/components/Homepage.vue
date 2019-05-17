@@ -1,39 +1,38 @@
 <template>
-  <main class="homepage">
-      <contact-form id="contactForm" hidden/>
-      <!-- <div class="homepage">
-
-      </div> -->
-      <carousel class="homepage__carousel" hidden/>
-      <div class="homepage__images">
-          <img src="@/assets/img/main-img.png">
-      </div>
-      <div class="homepage__info">
-          <p class="info__paragraph">Израиль, Тель-Авив</p>
-          <p class="info__headline">Медицинский центр Анадолу</p>
-          <div class="info-block-holder">
-              <info-block image="img/logo1.png" title="JCI" info="Joint Commission International"/>
-              <info-block image="img/logo1.png" title="JCI" info="Joint Commission International"/>
-              <info-block image="img/logo2.png" title="ESMO" info="European Society for Medical Oncology"/>
+  <main>
+      <contact-form v-if="formVisible" id="contactForm"/>
+      <div v-else class="homepage">
+          <carousel class="homepage__carousel" hidden/>
+          <div class="homepage__images">
+              <img src="@/assets/img/main-img.png">
           </div>
-          <div class="homepage__quote">
-              <img src="@/assets/img/quotes.png" alt="quotes" class="homepage__quote__image">
-              <p class="homepage__quote__text">Если тебе тяжело, значит ты поднимаешься в гору.
-                  Тебе легко, значит ты летишь в пропасть. Если драгоценный камень попадает в грязь, он остается драгоценностью.
-                  Если пыль подымается к небу, она остается пылью.</p>
-              <div class="quote__author">
-                  <div class="quote__author__text-holder">
-                      <p class="quote__author__text-holder__text quote__author__text-holder__text--bold">Риккардо Розати</p>
-                      <p class="quote__author__text-holder__text quote__author__text-holder__text--muted">Доктор в Медицинском центре Анадолу</p>
-                  </div>
-                  <div class="quote__author__image-holder">
-                      <img class="quote__author__image" src="@/assets/img/author.png">
+          <div class="homepage__info">
+              <p class="info__paragraph">Израиль, Тель-Авив</p>
+              <p class="info__headline">Медицинский центр Анадолу</p>
+              <div class="info-block-holder">
+                  <info-block image="img/logo1.png" title="JCI" info="Joint Commission International"/>
+                  <info-block image="img/logo1.png" title="JCI" info="Joint Commission International"/>
+                  <info-block image="img/logo2.png" title="ESMO" info="European Society for Medical Oncology"/>
+              </div>
+              <div class="homepage__quote">
+                  <img src="@/assets/img/quotes.png" alt="quotes" class="homepage__quote__image">
+                  <p class="homepage__quote__text">Если тебе тяжело, значит ты поднимаешься в гору.
+                      Тебе легко, значит ты летишь в пропасть. Если драгоценный камень попадает в грязь, он остается драгоценностью.
+                      Если пыль подымается к небу, она остается пылью.</p>
+                  <div class="quote__author">
+                      <div class="quote__author__text-holder">
+                          <p class="quote__author__text-holder__text quote__author__text-holder__text--bold">Риккардо Розати</p>
+                          <p class="quote__author__text-holder__text quote__author__text-holder__text--muted">Доктор в Медицинском центре Анадолу</p>
+                      </div>
+                      <div class="quote__author__image-holder">
+                          <img class="quote__author__image" src="@/assets/img/author.png">
+                      </div>
                   </div>
               </div>
           </div>
-      </div>
-      <div class="homepage__button-holder" hidden>
-          <TheButton @click="showForm" text="Связаться с клиникой"/>
+          <div class="homepage__button-holder" hidden>
+              <TheButton @click.native="showForm()" text="Связаться с клиникой"/>
+          </div>
       </div>
   </main>
 </template>
@@ -52,10 +51,14 @@ export default {
                     'carousel': TheCarousel,
                     TheButton
                 },
+    data() {
+        return {
+            formVisible: false
+        }
+    },
     methods: {
         showForm() {
-            let form = document.getElementById('contactForm')
-            form.hidden = false
+            this.formVisible = true
         }
     }
 }
