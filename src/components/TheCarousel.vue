@@ -87,6 +87,8 @@
         outline-color: rgba(255, 255, 255, 0);
     }
 
+    /* STYLES FOR TABLET */
+
     @media only screen and (max-width: 768px) and (min-width: 426px) {
         .carousel {
             height: 400px;

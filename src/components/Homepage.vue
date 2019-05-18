@@ -216,61 +216,63 @@ export default {
         margin-bottom: 2px;
     }
 
+    /* STYLES FOR LARGE SCREENS */
+
     @media screen and (min-width: 1500px) {
         .homepage__images {
             height: 600px;
         }
 
         .homepage__form {
-            margin-left: 1500px;
+            margin-left: 1000px;
             width: 384px;
             margin-right: 50px;
+        }
+
+        .homepage__info {
+            padding-left: 70px;
+            padding-right: 700px;
+        }
+    }
+
+    /* STYLES FOR TABLETS */
+
+    @media screen and (max-width: 1250px) {
+        .homepage__form {
+            width: 384px;
             margin-top: 350px;
         }
 
+        .info-block-holder__item {
+            width: 100%;
+        }
+
+        .homepage__numbers {
+            display: none;
+        }
     }
 
     @media screen and (min-width: 1030px) and (max-width: 1250px) {
         .homepage__form {
             margin-left: 650px;
-            width: 384px;
             margin-right: 50px;
-            margin-top: 350px;
         }
 
         .homepage__info {
             padding-left: 70px;
             padding-right: 575px;
         }
-
-        .info-block-holder__item {
-            width: 100%;
-        }
-
-        .homepage__numbers {
-            display: none;
-        }
     }
 
     @media screen and (min-width: 900px) and (max-width: 1030px) {
         .homepage__form {
             margin-left: 520px;
-            width: 384px;
             margin-right: 50px;
-            margin-top: 350px;
         }
 
         .homepage__info {
             padding-left: 70px;
             padding-right: 500px;
-        }
-
-        .info-block-holder__item {
-            width: 100%;
-        }
-
-        .homepage__numbers {
-            display: none;
         }
     }
 
@@ -280,24 +282,18 @@ export default {
         }
 
         .homepage__form {
-            margin-left: 440px;
-            margin-right: 70px;
+            margin-left: 380px;
+            margin-right: 50px;
             margin-top: 300px;
         }
 
         .homepage__info {
             padding-left: 70px;
-            padding-right: 450px;
-        }
-
-        .info-block-holder__item {
-            width: 100%;
-        }
-
-        .homepage__numbers {
-            display: none;
+            padding-right: 500px;
         }
     }
+
+    /* STYLES FOR MOBILE */
 
     @media screen and (max-width: 768px) {
 
@@ -329,14 +325,6 @@ export default {
         .info-block-holder {
             margin-top: 24px;
             flex-direction: column;
-        }
-
-        .info-block-holder__item {
-            width: 100%;
-        }
-
-        .homepage__numbers {
-            display: none;
         }
 
         .homepage__quote__author {

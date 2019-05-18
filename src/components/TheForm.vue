@@ -234,6 +234,8 @@
         border-color: #DD2C00;
     }
 
+    /* STYLES FOR MOBILE */
+
     @media only screen and (max-width: 768px) {
 
         .form {
