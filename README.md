@@ -23,11 +23,5 @@ git clone https://github.com/semkaway/page-sample
 
 3. Enjoy!
 
-## Built With
-
-<a href="https://vuejs.org/" target="_blank">
-    <img width="120" height='160' src="https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR.jpg">
-</a>
-
 ## Author
 [Kseniia Vilna](https://github.com/semkaway)
